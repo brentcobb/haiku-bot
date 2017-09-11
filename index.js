@@ -22,15 +22,12 @@ var Hypher = require('hypher'),
 /////////////// DATA BASE CRAP
 var MongoClient = require('mongodb').MongoClient;
 
-
-// The token of your bot - https://discordapp.com/developers/applications/me
 const token = process.env.DISCORD_TOKEN;
 
 ////////////////////////////////////
 var wordArray = [];
 
 function formattedWordArray(x) {
-  // console.log("x:", x)
   if( x.length <= 1 ) {
     return [{word: x, sylbs: 1}]
   } else {
@@ -51,15 +48,11 @@ function writeHaiku(msg){
   
   _.chain(wordArray)
     .map((word) => {
-      // console.log("word:", word)
       var not51 = true;
       var not7 = true;
       var not52 = true;
       formattedWord = h.hyphenate(word)
-      // console.log("formattedWord:", formattedWord)
-      
       z = formattedWordArray(formattedWord)
-      // console.log("z:", z)
 
       if(fiveSyl1Count <= 4 && sevenSylCount === 0 && fiveSyl2Count === 0) {
         fiveSyl1.push(z[0].word[0])
@@ -117,12 +110,10 @@ client.on('ready', () => {
 
 // Create an event listener for messages
 client.on('message', message => {
-  // If the message is "ping"
-  // console.log("message.id:", message.id)
-  // console.log("message.author.bot:", message.author)
+
   console.log('--SYLLABLE COUNT--', syllable(message.content))
   if (syllable(message.content) == '17' && message.author.bot != true) {
-    // Send "pong" to the same channel
+    
     haiku = writeHaiku(message.content)
   
     message.channel.send(haiku.msg, {code: true, split: { char:'\n' } })
@@ -135,7 +126,7 @@ client.on('message', message => {
       generatedHaiku: haiku.msg,
       date: { type: Date, default: Date.now }
     };
-    console.log("haikuToSave:", haikuToSave)
+    
     MongoClient.connect(process.env.DB_URI, function(err, db) {
 
       if(err) {console.log('err db connection', err)}
