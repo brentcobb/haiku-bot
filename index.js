@@ -5,6 +5,8 @@ if(process.env.ENVIRONMENT === 'local') {
   require('dotenv').config()
 }
 
+var http = require('http');
+
 // Import the discord.js module
 const Discord = require('discord.js');
 const _ = require('lodash');
@@ -153,3 +155,4 @@ client.on('message', message => {
 
 // Log our bot in
 client.login(token);
+http.createServer().listen(process.env.PORT)
