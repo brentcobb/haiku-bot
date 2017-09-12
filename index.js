@@ -124,7 +124,8 @@ client.on('message', message => {
       initialMessage:   message.content,
       generatedArrays: haiku.arrays,
       generatedHaiku: haiku.msg,
-      date: { type: Date, default: Date.now }
+      type: 'haiku',
+      date: Date.now()
     }
     
     MongoClient.connect(process.env.DB_URI, (err, db) => {
