@@ -8,7 +8,6 @@
     "dotenv": "^4.0.0",
     "hyphenation.en-us": "^0.2.1",
     "hypher": "^0.2.5",
-    "lodash": "^4.17.4",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.11",
     "syllable": "^2.2.0"
