@@ -35,7 +35,7 @@ This will start a server on port 8080 listening for messages from whatever chann
 
 ## Tests
 
-I should look into that, probly something like `tap`
+`npm test`
 
 ## Deployment
 

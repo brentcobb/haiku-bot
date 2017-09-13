@@ -6,6 +6,7 @@ const formattedWordArray = require('./formatter.js')
 
 var wordArray = []
 
+// once this works, it needs to become an npm module
 module.exports = msg => {
   var fiveSyl1Count = 0
   var sevenSylCount = 0
@@ -40,6 +41,7 @@ module.exports = msg => {
       sevenSylCount <= 6 &&
       fiveSyl2Count === 0
     ) {
+      // this one is really broken
       if (sevenSylCount === 6 && h.hyphenate(z.word) < 1) {
         sevenSyl.push(formattedWord[0])
         if (formattedWord[1]) {

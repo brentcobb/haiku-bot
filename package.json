@@ -13,12 +13,13 @@
     "syllable": "^2.2.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.0"
+    "nodemon": "^1.12.0",
+    "tap": "^10.7.2"
   },
   "scripts": {
     "start": "node index.js",
     "dev": "ENVIRONMENT=local PORT=8080 nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap ./tests/**.js"
   },
   "author": "",
   "license": "ISC"
